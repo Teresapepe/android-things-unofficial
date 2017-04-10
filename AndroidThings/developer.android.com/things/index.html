@@ -1,0 +1,979 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from developer.android.com/things/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:18:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+  
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+
+
+
+
+<script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script>
+
+<meta charset="utf-8">
+
+
+
+<meta name="xsrf_token" content="hTbtDitknpLfHkbpKekExSXnpDNkrpncyWfAixe2XTE6MTQ4OTk4MzUxMDU3OTc2MA" />
+
+  
+    <link rel="canonical" href="index.html">
+  
+
+  
+    <link rel="alternate" href="index.html" hreflang="en">
+  
+    <link rel="alternate" href="https://developer.android.google.cn/things/index.html" hreflang="en-cn">
+  
+
+  <link rel="alternate" href="index.html" hreflang="x-default">
+
+
+
+
+<link rel="shortcut icon" href="../_static/64fbe09b00/images/android/favicon.png">
+
+<link rel="apple-touch-icon" href="../_static/64fbe09b00/images/android/touchicon-180.png">
+
+
+<title>
+
+  Android Things | Android Things
+
+</title>
+
+  <meta name="description" content="Build devices based on the Android Things platform.">
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet"
+    href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+    title="roboto">
+
+
+
+
+
+<link href="../static/css/default16d8.css?v=2017032004" rel="stylesheet" type="text/css">
+<!-- JAVASCRIPT -->
+<script src="../_static/64fbe09b00/js/android_3p-bundle.js" type="text/javascript"></script>
+<script src="../_static/64fbe09b00/js/script_foot_closure_android.js"></script>
+<script src="../_static/64fbe09b00/js/script_foot_android.js"></script>
+
+<script type="text/javascript">
+  var toRoot = 'https://developer.android.com/';
+  var useUpdatedTemplates = true;
+  devsite.permissions.init({"782f0ac910272faf7315ed00833f4d6b": true, "098dafe57affddc137df300142652cfd": false, "cb025a64a50094835616312f4774a53d": true, "416fede3a228858e8c05b81c15c4c304": false, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "51470233c56fc1fde50f00b73c52b216": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true});
+
+  
+  var useDevsiteMetadata = true;
+
+  var replaceBlog = false;
+  var replaceYouTube = false;
+  var customSearchEnabled = true;
+  var siteDefaultLocale = 'en';
+
+  var ANDROID_LANGUAGES = [
+      'id','en','es','pt-br','vi','ru','ja','zh-cn','zh-tw','ko'
+  ];
+</script>
+<script src="../static/js/docs16d8.js?v=2017032004" type="text/javascript"></script>
+
+
+
+</head>
+
+<body class="gc-documentation
+            
+            dac-things no-crumbs None
+            full-width"
+      itemscope itemtype="http://schema.org/Article">
+  
+
+
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension8&quot;: null, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}">
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension8&quot;: null, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}">
+  
+
+
+
+  
+  
+    <script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "HK", "language": {"requested": "en", "served": "en"}, "projectName": null, "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+  
+
+
+
+  <a href="#top" id="skip-to-main">Skip to content</a>
+  <header id="header-wrapper">
+    <div class="dac-header" id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="#" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        
+<a class="dac-header-logo" href="index.html">
+  <img class="dac-header-logo-image" src="../static/images/android_logo.png"
+      srcset="https://developer.android.com/static/images/android_logo_2x.png 2x"
+      width="34" height="36" alt="">Things</a>
+<ul class="dac-header-tabs">
+  <li>
+    <a class="dac-header-tab" href="hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li>
+    <a class="dac-header-tab" href="sdk/index.html"
+       >SDK</a>
+  </li>
+</ul>
+<form data-search="" class="dac-header-search">
+  <button class="dac-header-search-close" data-search-close="">
+    <i class="dac-sprite dac-back-arrow"></i>
+  </button>
+
+  <div class="dac-header-search-inner">
+    <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+    <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search">
+    <button class="dac-header-search-clear dac-hidden" data-search-clear="">
+      <i class="dac-sprite dac-close-black"></i>
+    </button>
+  </div>
+</form>
+
+
+      </div><!--/.header-wrap.wrap-->
+    </div><!--/.header-->
+
+    <div id="search-results" class="dac-search-results">
+  <div id="dac-search-results-history" class="dac-search-results-history">
+    <div class="wrap dac-search-results-history-wrap">
+      <div class="cols">
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Most visited</h2>
+          <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Recently visited</h2>
+          <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dac-search-results-content" class="dac-search-results-content">
+    <div class="dac-search-results-metadata wrap">
+      <div class="dac-search-results-for">
+        <h2>Results for <span id="search-results-for"></span></h2>
+      </div>
+
+      <div id="dac-search-results-hero"></div>
+
+      <div class="dac-search-results-hero cols">
+        <div id="dac-search-results-reference" class="col-6of6 col-tablet-2of2 col-mobile-1of1">
+          <div class="suggest-card reference no-display">
+            <ul class="dac-search-results-reference">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols dac-search-results-cse">
+        <script src="../../cse.google.com/f4116.txt?cx=000521750095050289010:zpcpi1ea4s8" async></script>
+        <gcse:searchresults-only></gcse:searchresults-only>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+
+  <a name="navigation" tabindex=0 class="nav-start-marker">navigation</a>
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+        
+  
+<ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+  <li class="dac-nav-item">
+    <a class="dac-nav-back-button back-to-dev" tabindex="0"
+      href="https://developer.android.com/develop/index.html">
+      <i class="dac-sprite dac-nav-back"></i>Back to Developers
+    </a>
+  </li>
+  <li class="dac-nav-item hardware">
+    <a class="dac-nav-link" href="hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li class="dac-nav-item sdk">
+    <a class="dac-nav-link" href="sdk/index.html"
+       >SDK</a>
+  </li>
+</ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <a name="top" tabindex="0"></a>
+  
+  <div id="body-content">
+  
+    
+      
+    
+    <div class="jd-descr " itemprop="articleBody">
+      
+
+<div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+
+<style>
+.landing-green {
+  background-color: #558B2F;
+  color:white;
+  text-align: center;
+}
+
+.landing-green:hover {
+  background-color: rgba(51, 105, 30, 0.7);
+}
+
+.landing-green-background {
+  background-color: #8BC34A;
+  color:white;
+}
+
+.landing-body a:hover, .landing-body a.selected{
+  color:white;
+}
+
+.landing-dark-gray-background {
+  background-color: #78909c;
+  color:white;
+}
+
+.landing-down-arrow {
+  opacity: .4;
+}
+
+.landing-primary {
+  background-color: #2196F3;
+}
+
+.landing-primary:hover {
+  background-color: #1976D2;
+}
+
+a.landing-primary  {
+  color:white;
+}
+
+.landing-down-arrow:hover {
+  opacity: .2;
+}
+
+.landing-hero-wrap .landing-section-header {
+  margin-top: -250px;
+}
+
+.img-logo {
+  margin:0 auto;
+  display:block;
+  margin-bottom:-28px !important;
+}
+.img-row-icon {
+  text-align:center;
+  margin-bottom:20px;
+}
+.img-logo-thin {
+  margin:0 auto;
+  display:block;
+  margin-bottom:-55px !important;
+}
+.col-5 {
+  width:170px;
+}
+.auto-img-container-cols {
+  position:relative;
+  margin-bottom:25px;
+  margin-top:25px;
+}
+
+.sdk-link {
+  font-size:16px;
+  padding-left:5px;
+  padding-right:15px;
+}
+.sdk-link-title {
+  font-size:18px;
+  padding-left:5px;
+  padding-right:15px;
+}
+.sdk-link-desc {
+  font-size:14px;
+  padding-left:5px;
+  padding-right:15px;
+}
+.cols-leftp {
+  padding-left:95px;
+}
+.things-hero {
+    height: calc(100vh - 128px);
+    min-height: 504px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-image: url(images/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.landing-hero-description {
+  color: #44555d;
+  font-weight: 400;
+  width: 400px;
+}
+
+.landing-h1.hero {
+  color: #44555d;
+
+}
+
+@media screen and (max-width: 720px) {
+.landing-hero-description {
+  color: #44555d;
+  font-weight: 400;
+  width: 300px;
+}
+
+</style>
+
+<div class="landing-body-content">
+  <div class="landing-hero-container">
+
+    <div id="hero-height" class="landing-section things-hero">
+      <div class="landing-hero-wrap">
+        <div class="vertical-center-outer">
+          <div class="vertical-center-inner">
+
+            <div class="col-10">
+              <div class="landing-section-header">
+                <div class="landing-h1 hero">Android Things</div>
+                <div class="landing-hero-description">
+                  <p>Build connected devices for a wide variety of consumer, retail, and industrial applications
+                  </p>
+                </div>
+
+              <div class="landing-body" style="margin-top:40px;">
+                <a href="preview/index.html" class="landing-button landing-primary">
+                 Get the Developer Preview
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end .wrap -->
+
+      <div class="landing-scroll-down-affordance">
+        <a class="landing-down-arrow" href="#android-things">
+          <img src="images/carrot_black.png" alt="Scroll down to read more">
+        </a>
+      </div>
+    </div> <!-- end .landing-section .landing-hero -->
+  </div> <!-- end .landing-hero-container -->
+
+  <div class="landing-rest-of-page">
+
+
+    <div class="landing-section"><div class="wrap">
+        <div style="text-align:center">
+          <img width="120px" src="images/graphic_bugdroid.png"/>
+        </div>
+        <div class="landing-section-header">
+          <div class="landing-h1">The ease and power of Android</div>
+          <div class="landing-subhead">If you can build an app,
+          you can build a device
+          </div>
+        </div>
+        <br />
+        <div class="col-3-wide">
+                <h4>The Android ecosystem</h4>
+                <p class="landing-small">
+                  Leverage existing Android development tools, APIs,
+                  resources, and a thriving developer community.
+                </p>
+        </div>
+        <div class="col-3-wide">
+                <h4>New APIs for IoT devices</h4>
+                <p class="landing-small">
+               Develop with new Android framework APIs that provide low
+               level I/O and libraries for common components like
+               temperature sensors, display controllers, and more.</p>
+        </div>
+        <div class="col-3-wide">
+                <h4>Trusted security</h4>
+                <p class="landing-small">
+                  Take advantage of regular
+                  best-in-class security updates by building on top
+                  of the Android OS.
+
+                </p>
+        </div>
+        <p>&nbsp;</p>
+      </div> <!-- end .wrap -->
+    </div>
+
+    <div class="landing-section landing-white-background" id="android-things">
+      <div class="wrap">
+        <div class="landing-section-header">
+          <div class="landing-h1">Rapid prototypes to real products</div>
+        <div class="landing-subhead">
+          Anyone, from startups to large companies, can build
+          commercial products at scale
+        </div>
+        </div>
+        <div class="landing-body ">
+          <div class="cols">
+            <div class="col-3-wide" >
+              <div class="img-row-icon">
+                  <img src="images/landing-certified.png" alt="">
+              </div>
+              <h4>Turnkey hardware solutions</h4>
+              <p class="landing-small">
+                Our certified development boards include the
+                System on Chip (SoC), RAM, wireless radios, and
+                more to get you started quickly.
+              </p>
+            </div>
+            <div class="col-3-wide">
+              <div class="img-row-icon">
+                <img src="images/landing-market.png" alt="">
+              </div>
+              <h4>Low barrier to entry</h4>
+              <p class="landing-small">
+                Start prototyping immediately with supported
+                boards and a developer build of Android Things. There's
+                no need for kernel, firmware, or board development.
+                </p>
+            </div>
+            <div class="col-3-wide">
+              <div class="img-row-icon">
+                <img width="90px" src="images/landing-scale.png" alt="">
+              </div>
+              <h4>Build products at scale</h4>
+              <p class="landing-small">
+                Shipping products is easy because our prototype boards are commercial grade. The same boards can be easily customized by your prototype supplier to fit your specific form-factor and other needs, all while running
+                the same software.</div>
+          </div>
+        </div>
+      </div>
+      <br/><br/>
+          <p class="landing-subhead">To learn more about the hardware program, see our
+            <a href="hardware/index.html">Hardware Platform Overview</a>.</p>
+    </div> <!-- end .landing-section -->
+
+    <div class="landing-section  landing-dark-gray-background" >
+        <div class="wrap">
+          <div class="landing-section-header">
+            <div style="text-align:center">
+              <img width="120px" src="images/graphic_superG.png"/>
+            </div>
+            <div class="landing-h1" style="color: white;">The power of Google at your fingertips</div>
+            <div class="landing-subhead" style="color: white;">
+            Build and manage millions of devices at Google’s scale
+            </div>
+          </div>
+          <br />
+          <div class="landing-body" style="color: white;">
+              <div class="cols">
+
+                <div class="col-3-wide">
+                  <h4>Google APIs and services</h4>
+                  <p class="landing-small">
+                   Leverage a wide range of Google services, such as Google Play services and Weave.
+                  </p>
+                </div>
+                <div class="col-3-wide">
+                  <h4>System updates and support</h4>
+                  <p class="landing-small">
+                   We provide the system image, updates, fixes,
+                   and more, so you can focus on creating compelling products.
+                  </p>
+                </div>
+                <div class="col-3-wide">
+                  <h4>Large scale infrastructure</h4>
+                  <p class="landing-small">
+                    Push Google-provided OS updates and your own app updates,
+                    using the same OTA infrastructure we use for our own products.
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div> <!-- end .wrap -->
+      </div> <!-- end .landing-section -->
+
+      <div class="landing-section landing-green-background">
+        <div class="wrap">
+          <div class="landing-section-header">
+            <div class="landing-h1" style="color:white">Android Things Developer Preview</div>
+
+            <div class="landing-subhead" style="color:white">
+              <p>
+                Get started now with the Developer Preview, so you can start designing and developing your own products. We will be providing regular updates with new features, and a long-term support release for commercialization in the coming months.</p>
+            </div>
+          </div>
+          <div class="landing-body" style="margin-top: 20px;text-align:center">
+            <a href="preview/index.html" class="landing-button landing-green">
+              Get the Developer Preview
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script>
+  $("a.landing-down-arrow").on("click", function(e) {
+    $("body").animate({
+      scrollTop: $(".things-hero").height() + 60
+    }, 1000, "easeOutQuint");
+    e.preventDefault();
+  });
+  </script>
+
+</div> <!-- end landing-body-content -->
+    </div>
+
+  </div> <!-- end jd-content -->
+
+  </div>
+
+
+    </div>
+
+    
+
+    
+    
+
+
+
+
+<div class="wrap">
+  <footer class="dac-footer ">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" id="newsletter" data-modal-toggle="newsletter" title="Newsletter">Newsletter</a>
+          <a class="dac-footer-contact-link" href="https://android-developers.blogspot.com/" title="Blog">Blog</a>
+          <a class="dac-footer-contact-link" href="https://developer.android.com/support.html" title="Support">Support</a>
+        </div>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers" title="Android Developers on YouTube"><i class="dac-sprite dac-youtube"></i><span class="hide-text">Android Developers on YouTube</span></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers" title="Android Developers on Google+"><i class="dac-sprite dac-gplus"></i><span class="hide-text">Android Developers on Google+</span></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev" title="Android Developers on Twitter"><i class="dac-sprite dac-twitter"></i><span class="hide-text">Android Developers on Twitter</span></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+      
+      <p class="dac-footer-copyright">
+        Except as noted, this content is
+        licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+        Creative Commons Attribution 2.5</a>. For details and
+        restrictions, see the <a href="https://developer.android.com/license.html">Content
+        License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="https://www.android.com/" title="Android.com">Android.com</a>
+      <a href="https://developer.android.com/" title="Android Developers">Android Developers</a>
+      <a href="https://developer.android.com/studio/index.html" title="Android Studio">Android Studio</a>
+      
+        <a href="https://developer.android.com/console/index.html" title="Google Play Developer Console">Google Play Developer Console</a>
+      
+      <a href="https://developer.android.com/legal.html" title="Legal Notice">Legal Notice</a>
+    </p>
+
+    <!-- TODO(akassay) Update all DAC js to use the class instead of the id b/30368561 -->
+    <form class="devsite-utility-footer-language" id="setlang" action="https://developer.android.com/i18n/setlang/" method="post">
+      <input type="hidden" name="xsrf_token" value="hTbtDitknpLfHkbpKekExSXnpDNkrpncyWfAixe2XTE6MTQ4OTk4MzUxMDU3OTc2MA" />
+      <input type="hidden" name="next" value="/things/index.html">
+      <span id="language" class="locales">
+        <select class="devsite-utility-footer-language-select" name="language">
+          
+          <option value="id"
+            >
+            Bahasa Indonesia
+          </option>
+          
+          <option value="en"
+             selected="selected" >
+            English
+          </option>
+          
+          <option value="es"
+            >
+            español
+          </option>
+          
+          <option value="pt-br"
+            >
+            Português Brasileiro
+          </option>
+          
+          <option value="vi"
+            >
+            Tiếng Việt
+          </option>
+          
+          <option value="ru"
+            >
+            Русский
+          </option>
+          
+          <option value="ja"
+            >
+            日本語
+          </option>
+          
+          <option value="zh-cn"
+            >
+            简体中文
+          </option>
+          
+          <option value="zh-tw"
+            >
+            繁體中文
+          </option>
+          
+          <option value="ko"
+            >
+            한국어
+          </option>
+          
+        </select>
+      </span>
+    </form>
+  </footer>
+</div><!--/.wrap -->
+
+
+<div class="dac-toast-group">
+  <div class="dac-toast" data-toast>
+    <div class="dac-toast-wrap">
+      This site uses cookies to store your preferences for site-specific language and display options.
+    </div>
+  </div>
+</div>
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div><!--/.dac-modal.newsletter-->
+
+
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="yes" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+            </a>
+            <a href="#" class="" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal-->
+
+
+<div data-modal="api-unavailable" class="dac-modal" id="api-unavailable">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title">
+            This class requires API level <span class="api-level"></span>
+            or higher
+          </h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+
+      <p>This doc is hidden because your selected API level for the
+      documentation is <span class="selected-level"></span>. You can change the
+      documentation API level with the selector above the left navigation.</p>
+
+      <p>For more information about specifying the API level your app requires,
+      read <a
+      href="https://developer.android.com/training/basics/supporting-devices/platforms.html">Supporting
+      Different Platform Versions</a>.</p>
+
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="ok" onclick="return false;">
+              <button class="button dac-primary dac-modal-action ok"
+              data-modal-toggle>
+                OK, make this page visible
+              </button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal#api-unavailable-->
+
+    
+  </div><!--/#body-content-->
+
+  <!-- Nav Setup -->
+  <script>$('[data-dac-nav]').dacNav();</script>
+  <script type="text/javascript">
+    $('.slideshow-container').dacSlideshow({
+        btnPrev: '.slideshow-prev',
+        btnNext: '.slideshow-next',
+        btnPause: '#pauseButton'
+    });
+
+    $(".feed").dacTabbedList({
+      nav_id: '.feed-nav',
+      frame_id: '.feed-frame'
+    });
+  </script>
+  
+  <script src="../ytblogger_lists_unified16d8.js?v=2017032004" defer></script>
+  <script src="../android_metadata_en16d8.js?v=2017032004" defer></script>
+  
+  <script src="../reference/lists16d8.js?v=2017032004" defer></script>
+  <script src="../reference/gcm_lists16d8.js?v=2017032004" defer></script>
+  <script src="../reference/gms_lists16d8.js?v=2017032004" defer></script>
+  <script src="../reference/android/support/wearable/lists16d8.js?v=2017032004" defer></script>
+  <script src="../reference/android/support/test/lists16d8.js?v=2017032004" defer></script>
+  <script src="../reference/android/support/constraint/lists16d8.js?v=2017032004" defer></script>
+  <script src="https://developer.android.com/_static2/64fbe09b00/jsi18n/"></script>
+  <script>
+    // Load localized metadata.
+    (function(lang) {
+      if (lang === 'en') { return; }
+      document.write('<script src="https://developer.android.com/android_metadata_en.js?v=2017032004" defer></' + 'script>');
+    })(getLangPref())
+
+    // Add skip to content for accessibility.
+    $('#skip-to-main').click(function() {
+      $('a[name=top]').focus();
+    });
+
+    $('.devsite-utility-footer-language-select').each(function() {
+      $(this).change(function() {
+        changeLangPref(this.value, true)
+        $('.devsite-utility-footer-language').submit();
+      });
+    });
+  </script>
+
+  <script>
+    (function($) {
+      devsite.analytics.InitAnalytics();
+    })(jQuery);
+  </script>
+
+  
+
+<div id="survey-box-wrapper">
+  <div class="material-dialog" style="width:270px">
+    <div class="material-dialog-title">
+      Take a one-minute survey?
+    </div>
+    <div class="material-dialog-description">
+      Help us improve Android tools and documentation.
+    </div>
+    <div class="material-button-bar">
+      <a class="dac-button dac-primary dac-raised" target="_blank"
+          href="https://goo.gl/forms/kV7MoyD2dvcWkd5N2">Sure</a>
+      <a class="dac-button" href="#">No thanks</a>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<!-- Mirrored from developer.android.com/things/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:19:53 GMT -->
+</html>

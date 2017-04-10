@@ -1,0 +1,751 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from developer.android.com/things/training/first-device/connect-hardware.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:27:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+  
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+
+
+
+
+<script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script>
+
+<meta charset="utf-8">
+
+
+
+<meta name="xsrf_token" content="OB8GyVoS-YRU6_3rGqhDazFLK9s5OByRbw8nhEdyTaM6MTQ4OTk4NDAxNjQ1Njg1MA" />
+
+  
+    <link rel="canonical" href="connect-hardware.html">
+  
+
+  
+    <link rel="alternate" href="connect-hardware.html" hreflang="en">
+  
+    <link rel="alternate" href="https://developer.android.google.cn/things/training/first-device/connect-hardware.html" hreflang="en-cn">
+  
+
+  <link rel="alternate" href="connect-hardware.html" hreflang="x-default">
+
+
+
+
+<link rel="shortcut icon" href="../../../_static/64fbe09b00/images/android/favicon.png">
+
+<link rel="apple-touch-icon" href="../../../_static/64fbe09b00/images/android/touchicon-180.png">
+
+
+<title>
+
+  Connect the Hardware | Android Things
+
+</title>
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet"
+    href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+    title="roboto">
+
+
+
+
+
+<link href="../../../static/css/default16d8.css?v=2017032004" rel="stylesheet" type="text/css">
+<!-- JAVASCRIPT -->
+<script src="../../../_static/64fbe09b00/js/android_3p-bundle.js" type="text/javascript"></script>
+<script src="../../../_static/64fbe09b00/js/script_foot_closure_android.js"></script>
+<script src="../../../_static/64fbe09b00/js/script_foot_android.js"></script>
+
+<script type="text/javascript">
+  var toRoot = 'https://developer.android.com/';
+  var useUpdatedTemplates = true;
+  devsite.permissions.init({"782f0ac910272faf7315ed00833f4d6b": true, "098dafe57affddc137df300142652cfd": false, "cb025a64a50094835616312f4774a53d": true, "416fede3a228858e8c05b81c15c4c304": false, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "51470233c56fc1fde50f00b73c52b216": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true});
+
+  
+  var useDevsiteMetadata = true;
+
+  var replaceBlog = false;
+  var replaceYouTube = false;
+  var customSearchEnabled = true;
+  var siteDefaultLocale = 'en';
+
+  var ANDROID_LANGUAGES = [
+      'id','en','es','pt-br','vi','ru','ja','zh-cn','zh-tw','ko'
+  ];
+</script>
+<script src="../../../static/js/docs16d8.js?v=2017032004" type="text/javascript"></script>
+
+
+
+</head>
+
+<body class="gc-documentation
+            
+            dac-things no-crumbs sdk
+            "
+      itemscope itemtype="http://schema.org/Article">
+  
+
+
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Things&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}">
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Things&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}">
+  
+
+
+
+  
+  
+    <script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "HK", "language": {"requested": "en", "served": "en"}, "projectName": "Android Things", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+  
+
+
+
+  <a href="#top" id="skip-to-main">Skip to content</a>
+  <header id="header-wrapper">
+    <div class="dac-header" id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="#" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        
+<a class="dac-header-logo" href="../../index.html">
+  <img class="dac-header-logo-image" src="../../../static/images/android_logo.png"
+      srcset="https://developer.android.com/static/images/android_logo_2x.png 2x"
+      width="34" height="36" alt="">Things</a>
+<ul class="dac-header-tabs">
+  <li>
+    <a class="dac-header-tab" href="../../hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li>
+    <a class="dac-header-tab" href="../../sdk/index.html"
+       >SDK</a>
+  </li>
+</ul>
+<form data-search="" class="dac-header-search">
+  <button class="dac-header-search-close" data-search-close="">
+    <i class="dac-sprite dac-back-arrow"></i>
+  </button>
+
+  <div class="dac-header-search-inner">
+    <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+    <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search">
+    <button class="dac-header-search-clear dac-hidden" data-search-clear="">
+      <i class="dac-sprite dac-close-black"></i>
+    </button>
+  </div>
+</form>
+
+
+      </div><!--/.header-wrap.wrap-->
+    </div><!--/.header-->
+
+    <div id="search-results" class="dac-search-results">
+  <div id="dac-search-results-history" class="dac-search-results-history">
+    <div class="wrap dac-search-results-history-wrap">
+      <div class="cols">
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Most visited</h2>
+          <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Recently visited</h2>
+          <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dac-search-results-content" class="dac-search-results-content">
+    <div class="dac-search-results-metadata wrap">
+      <div class="dac-search-results-for">
+        <h2>Results for <span id="search-results-for"></span></h2>
+      </div>
+
+      <div id="dac-search-results-hero"></div>
+
+      <div class="dac-search-results-hero cols">
+        <div id="dac-search-results-reference" class="col-6of6 col-tablet-2of2 col-mobile-1of1">
+          <div class="suggest-card reference no-display">
+            <ul class="dac-search-results-reference">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols dac-search-results-cse">
+        <script src="../../../../cse.google.com/f4116.txt?cx=000521750095050289010:zpcpi1ea4s8" async></script>
+        <gcse:searchresults-only></gcse:searchresults-only>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+
+  <a name="navigation" tabindex=0 class="nav-start-marker">navigation</a>
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+        <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" tabindex=0 data-swap-button>
+          
+          <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+        </a>
+
+        <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope
+            itemtype="http://schema.org/SiteNavigationElement">
+          
+          
+            
+            <ul id="nav">
+              <li class="nav-section"><div class="nav-section-header empty"><a href="../../sdk/index.html" >Overview</a></div></li><li class="nav-section"><div class="nav-section-header"><a href="../../preview/index.html" >SDK Preview</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../preview/releases.html" >Release Notes</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../../sdk/pio/index.html" >Peripheral I/O</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../sdk/pio/gpio.html" >GPIO</a></li><li><a href="../../sdk/pio/pwm.html" >PWM</a></li><li><a href="../../sdk/pio/i2c.html" >I2C</a></li><li><a href="../../sdk/pio/spi.html" >SPI</a></li><li><a href="../../sdk/pio/uart.html" >UART</a></li><li><a href="../../sdk/pio/native.html" >Native PIO</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../../sdk/drivers/index.html" >User-space Drivers</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../sdk/drivers/gps.html" >GPS</a></li><li><a href="../../sdk/drivers/input.html" >Input</a></li><li><a href="../../sdk/drivers/sensors.html" >Sensors</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../../sdk/samples.html" >Samples</a><span class="toggle-icon" tabindex="0"></span></div><ul><li class="nav-section"><div class="nav-section-header"><a href="index.html"  description="Start with this class to learn the basics of Android Things development.">Building Your First Device</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="create-studio-project.html" >Create an Android Things Project</a></li><li><a href="connect-hardware.html" >Connect the Hardware</a></li><li><a href="peripherals.html" >Interact with Peripherals</a></li><li><a href="drivers.html" >Integrate Peripheral Drivers</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../doorbell/index.html"  description="Build a device that captures and shares image data with a companion app using Cloud Vision and Firebase.">Building a Cloud Doorbell</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../doorbell/button-input.html" >Implement a Doorbell Button</a></li><li><a href="../doorbell/camera-input.html" >Add Camera Support</a></li><li><a href="../doorbell/cloud-vision.html" >Analyze the Image Data</a></li><li><a href="../doorbell/firebase-db.html" >Synchronize with Firebase</a></li><li><a href="../doorbell/companion-app.html" >Implement a Companion App</a></li></ul></li><li><a href="../../sdk/driver-library.html" >Driver Library</a></li></ul></li>
+            </ul>
+            
+          
+        </div>
+        
+        
+  
+<ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+  <li class="dac-nav-item">
+    <a class="dac-nav-back-button back-to-dev" tabindex="0"
+      href="https://developer.android.com/develop/index.html">
+      <i class="dac-sprite dac-nav-back"></i>Back to Developers
+    </a>
+  </li>
+  <li class="dac-nav-item hardware">
+    <a class="dac-nav-link" href="../../hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li class="dac-nav-item sdk">
+    <a class="dac-nav-link" href="../../sdk/index.html"
+       >SDK</a>
+  </li>
+</ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <a name="top" tabindex="0"></a>
+  
+  <div class="wrap clearfix" id="body-content">
+  
+    
+      
+      <div class="content-header">
+        <ul class="dac-header-crumbs"></ul>
+        <!-- Breadcrumb Setup -->
+        <script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script>
+        <h1 itemprop="name">Connect the Hardware</h1>
+        
+      </div>
+      
+    
+    <div class="jd-descr " itemprop="articleBody">
+      
+<div id="tb-wrapper">
+<div id="tb">
+  <h2>This lesson teaches you to</h2>
+  <ol>
+    <li>Connect a button to GPIO</li>
+    <li>Connect an LED to GPIO</li>
+  </ol>
+  <h2>You should also read</h2>
+  <ul>
+    <li><a href="../../hardware/hardware-101.html">Hardware 101</a></li>
+  </ul>
+
+</div>
+
+</div>
+
+
+<p>Before writing any code, you need to connect peripherals from your development
+kit to your board.</p>
+<p>In this lesson, you will learn to wire a pushbutton switch and LED from a
+breadboard to your device. To connect the peripherals to your board:</p>
+<ol>
+<li>Connect one side of the button to the chosen GPIO input pin,
+    and the other side to ground.</li>
+<li>Connect the same GPIO input pin to +3.3V through a pull-up resistor.</li>
+<li>Connect the chosen GPIO output pin to one side of a series resistor.</li>
+<li>Connect the other side of the resistor to the anode side (longer lead)
+    of the LED.</li>
+<li>Connect the cathode side (shorter lead) of the LED to ground.</li>
+</ol>
+<aside class="note"><strong>Note:</strong><span> See <a href="../../hardware/hardware-101.html">Hardware 101</a> for more detail on
+connecting input and output components.</span></aside>
+<p>For this lesson, the following GPIO pins are assumed on each board:</p>
+<table style="width:480px;">
+  <tr>
+  <th width="33%">Board</th>
+  <th>Input Signal</th>
+  <th>Output Signal</th>
+  </tr>
+  <tr>
+  <td><a href="../../hardware/edison-arduino-io.html">Intel Edison Arduino</a></td>
+  <td>IO12</td>
+  <td>IO13</td>
+  </tr>
+  <tr>
+  <td><a href="../../hardware/edison-sparkfun-io.html">Intel Edison Sparkfun</a></td>
+  <td>GP44</td>
+  <td>GP45</td>
+  </tr>
+  <tr>
+  <td><a href="../../hardware/pico-io.html">NXP Pico</a></td>
+  <td>GPIO4_IO20</td>
+  <td>GPIO4_IO21</td>
+  </tr>
+  <tr>
+  <td><a href="../../hardware/raspberrypi-io.html">Raspberry Pi</a></td>
+  <td>BCM21</td>
+  <td>BCM6</td>
+  </tr>
+</table>
+
+<p><img alt="&quot;&quot;" src="../../images/simplepio-wiring.png" /></p>
+<div class="paging-links">
+  <a href="create-studio-project.html"
+  class="prev-page-link" zh-tw-lang="上一堂課" zh-cn-lang="上一课"
+  ru-lang="Предыдущий" ko-lang="이전" ja-lang="前へ" es-lang="Anterior">
+  <span class="page-link-caption">Previous</span>Create an Android Things Project</a>
+
+  <a href="../doorbell/peripherals.html"
+  class="next-page-link" zh-tw-lang="下一堂課" zh-cn-lang="下一课"
+  ru-lang="Следующий" ko-lang="다음" ja-lang="次へ" es-lang="Siguiente">
+  <span class="page-link-caption">Next</span>Interact with Peripherals</a>
+
+</div>
+
+    </div>
+
+    
+
+    
+    
+
+
+
+
+<div class="wrap">
+  <footer class="dac-footer ">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" id="newsletter" data-modal-toggle="newsletter" title="Newsletter">Newsletter</a>
+          <a class="dac-footer-contact-link" href="https://android-developers.blogspot.com/" title="Blog">Blog</a>
+          <a class="dac-footer-contact-link" href="https://developer.android.com/support.html" title="Support">Support</a>
+        </div>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers" title="Android Developers on YouTube"><i class="dac-sprite dac-youtube"></i><span class="hide-text">Android Developers on YouTube</span></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers" title="Android Developers on Google+"><i class="dac-sprite dac-gplus"></i><span class="hide-text">Android Developers on Google+</span></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev" title="Android Developers on Twitter"><i class="dac-sprite dac-twitter"></i><span class="hide-text">Android Developers on Twitter</span></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+      
+      <p class="dac-footer-copyright">
+        Except as noted, this content is
+        licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+        Creative Commons Attribution 2.5</a>. For details and
+        restrictions, see the <a href="https://developer.android.com/license.html">Content
+        License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="https://www.android.com/" title="Android.com">Android.com</a>
+      <a href="https://developer.android.com/" title="Android Developers">Android Developers</a>
+      <a href="https://developer.android.com/studio/index.html" title="Android Studio">Android Studio</a>
+      
+        <a href="https://developer.android.com/console/index.html" title="Google Play Developer Console">Google Play Developer Console</a>
+      
+      <a href="https://developer.android.com/legal.html" title="Legal Notice">Legal Notice</a>
+    </p>
+
+    <!-- TODO(akassay) Update all DAC js to use the class instead of the id b/30368561 -->
+    <form class="devsite-utility-footer-language" id="setlang" action="https://developer.android.com/i18n/setlang/" method="post">
+      <input type="hidden" name="xsrf_token" value="OB8GyVoS-YRU6_3rGqhDazFLK9s5OByRbw8nhEdyTaM6MTQ4OTk4NDAxNjQ1Njg1MA" />
+      <input type="hidden" name="next" value="connect-hardware.html">
+      <span id="language" class="locales">
+        <select class="devsite-utility-footer-language-select" name="language">
+          
+          <option value="id"
+            >
+            Bahasa Indonesia
+          </option>
+          
+          <option value="en"
+             selected="selected" >
+            English
+          </option>
+          
+          <option value="es"
+            >
+            español
+          </option>
+          
+          <option value="pt-br"
+            >
+            Português Brasileiro
+          </option>
+          
+          <option value="vi"
+            >
+            Tiếng Việt
+          </option>
+          
+          <option value="ru"
+            >
+            Русский
+          </option>
+          
+          <option value="ja"
+            >
+            日本語
+          </option>
+          
+          <option value="zh-cn"
+            >
+            简体中文
+          </option>
+          
+          <option value="zh-tw"
+            >
+            繁體中文
+          </option>
+          
+          <option value="ko"
+            >
+            한국어
+          </option>
+          
+        </select>
+      </span>
+    </form>
+  </footer>
+</div><!--/.wrap -->
+
+
+<div class="dac-toast-group">
+  <div class="dac-toast" data-toast>
+    <div class="dac-toast-wrap">
+      This site uses cookies to store your preferences for site-specific language and display options.
+    </div>
+  </div>
+</div>
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div><!--/.dac-modal.newsletter-->
+
+
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="yes" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+            </a>
+            <a href="#" class="" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal-->
+
+
+<div data-modal="api-unavailable" class="dac-modal" id="api-unavailable">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title">
+            This class requires API level <span class="api-level"></span>
+            or higher
+          </h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+
+      <p>This doc is hidden because your selected API level for the
+      documentation is <span class="selected-level"></span>. You can change the
+      documentation API level with the selector above the left navigation.</p>
+
+      <p>For more information about specifying the API level your app requires,
+      read <a
+      href="https://developer.android.com/training/basics/supporting-devices/platforms.html">Supporting
+      Different Platform Versions</a>.</p>
+
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="ok" onclick="return false;">
+              <button class="button dac-primary dac-modal-action ok"
+              data-modal-toggle>
+                OK, make this page visible
+              </button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal#api-unavailable-->
+
+    
+  </div><!--/#body-content-->
+
+  <!-- Nav Setup -->
+  <script>$('[data-dac-nav]').dacNav();</script>
+  <script type="text/javascript">
+    $('.slideshow-container').dacSlideshow({
+        btnPrev: '.slideshow-prev',
+        btnNext: '.slideshow-next',
+        btnPause: '#pauseButton'
+    });
+
+    $(".feed").dacTabbedList({
+      nav_id: '.feed-nav',
+      frame_id: '.feed-frame'
+    });
+  </script>
+  
+  <script src="../../../ytblogger_lists_unified16d8.js?v=2017032004" defer></script>
+  <script src="../../../android_metadata_en16d8.js?v=2017032004" defer></script>
+  
+  <script src="../../../reference/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/gcm_lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/gms_lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/wearable/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/test/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/constraint/lists16d8.js?v=2017032004" defer></script>
+  <script src="https://developer.android.com/_static2/64fbe09b00/jsi18n/"></script>
+  <script>
+    // Load localized metadata.
+    (function(lang) {
+      if (lang === 'en') { return; }
+      document.write('<script src="https://developer.android.com/android_metadata_en.js?v=2017032004" defer></' + 'script>');
+    })(getLangPref())
+
+    // Add skip to content for accessibility.
+    $('#skip-to-main').click(function() {
+      $('a[name=top]').focus();
+    });
+
+    $('.devsite-utility-footer-language-select').each(function() {
+      $(this).change(function() {
+        changeLangPref(this.value, true)
+        $('.devsite-utility-footer-language').submit();
+      });
+    });
+  </script>
+
+  <script>
+    (function($) {
+      devsite.analytics.InitAnalytics();
+    })(jQuery);
+  </script>
+
+  
+
+<div id="survey-box-wrapper">
+  <div class="material-dialog" style="width:270px">
+    <div class="material-dialog-title">
+      Take a one-minute survey?
+    </div>
+    <div class="material-dialog-description">
+      Help us improve Android tools and documentation.
+    </div>
+    <div class="material-button-bar">
+      <a class="dac-button dac-primary dac-raised" target="_blank"
+          href="https://goo.gl/forms/kV7MoyD2dvcWkd5N2">Sure</a>
+      <a class="dac-button" href="#">No thanks</a>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<!-- Mirrored from developer.android.com/things/training/first-device/connect-hardware.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:27:17 GMT -->
+</html>

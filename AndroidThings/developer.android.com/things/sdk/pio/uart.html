@@ -1,0 +1,906 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from developer.android.com/things/sdk/pio/uart.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:27:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+  
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+
+
+
+
+<script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script>
+
+<meta charset="utf-8">
+
+
+
+<meta name="xsrf_token" content="ZCWd9tYssDPs-uTVbTwUhifVPyB4jdWMmA8rFfkL5IA6MTQ4OTk4NDAxNDA2OTU2MA" />
+
+  
+    <link rel="canonical" href="uart.html">
+  
+
+  
+    <link rel="alternate" href="uart.html" hreflang="en">
+  
+    <link rel="alternate" href="https://developer.android.google.cn/things/sdk/pio/uart.html" hreflang="en-cn">
+  
+
+  <link rel="alternate" href="uart.html" hreflang="x-default">
+
+
+
+
+<link rel="shortcut icon" href="../../../_static/64fbe09b00/images/android/favicon.png">
+
+<link rel="apple-touch-icon" href="../../../_static/64fbe09b00/images/android/touchicon-180.png">
+
+
+<title>
+
+  UART | Android Things
+
+</title>
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet"
+    href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+    title="roboto">
+
+
+
+
+
+<link href="../../../static/css/default16d8.css?v=2017032004" rel="stylesheet" type="text/css">
+<!-- JAVASCRIPT -->
+<script src="../../../_static/64fbe09b00/js/android_3p-bundle.js" type="text/javascript"></script>
+<script src="../../../_static/64fbe09b00/js/script_foot_closure_android.js"></script>
+<script src="../../../_static/64fbe09b00/js/script_foot_android.js"></script>
+
+<script type="text/javascript">
+  var toRoot = 'https://developer.android.com/';
+  var useUpdatedTemplates = true;
+  devsite.permissions.init({"782f0ac910272faf7315ed00833f4d6b": true, "098dafe57affddc137df300142652cfd": false, "cb025a64a50094835616312f4774a53d": true, "416fede3a228858e8c05b81c15c4c304": false, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "752953480de00a336d911a46966cc16d": false, "51470233c56fc1fde50f00b73c52b216": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true});
+
+  
+  var useDevsiteMetadata = true;
+
+  var replaceBlog = false;
+  var replaceYouTube = false;
+  var customSearchEnabled = true;
+  var siteDefaultLocale = 'en';
+
+  var ANDROID_LANGUAGES = [
+      'id','en','es','pt-br','vi','ru','ja','zh-cn','zh-tw','ko'
+  ];
+</script>
+<script src="../../../static/js/docs16d8.js?v=2017032004" type="text/javascript"></script>
+
+
+
+</head>
+
+<body class="gc-documentation
+            
+            dac-things no-crumbs sdk
+            "
+      itemscope itemtype="http://schema.org/Article">
+  
+
+
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Things&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}">
+  
+    <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Things&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}">
+  
+
+
+
+  
+  
+    <script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "HK", "language": {"requested": "en", "served": "en"}, "projectName": "Android Things", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+  
+
+
+
+  <a href="#top" id="skip-to-main">Skip to content</a>
+  <header id="header-wrapper">
+    <div class="dac-header" id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="#" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        
+<a class="dac-header-logo" href="../../index.html">
+  <img class="dac-header-logo-image" src="../../../static/images/android_logo.png"
+      srcset="https://developer.android.com/static/images/android_logo_2x.png 2x"
+      width="34" height="36" alt="">Things</a>
+<ul class="dac-header-tabs">
+  <li>
+    <a class="dac-header-tab" href="../../hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li>
+    <a class="dac-header-tab" href="../index.html"
+       >SDK</a>
+  </li>
+</ul>
+<form data-search="" class="dac-header-search">
+  <button class="dac-header-search-close" data-search-close="">
+    <i class="dac-sprite dac-back-arrow"></i>
+  </button>
+
+  <div class="dac-header-search-inner">
+    <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+    <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search">
+    <button class="dac-header-search-clear dac-hidden" data-search-clear="">
+      <i class="dac-sprite dac-close-black"></i>
+    </button>
+  </div>
+</form>
+
+
+      </div><!--/.header-wrap.wrap-->
+    </div><!--/.header-->
+
+    <div id="search-results" class="dac-search-results">
+  <div id="dac-search-results-history" class="dac-search-results-history">
+    <div class="wrap dac-search-results-history-wrap">
+      <div class="cols">
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Most visited</h2>
+          <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+
+        <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+          <h2>Recently visited</h2>
+          <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dac-search-results-content" class="dac-search-results-content">
+    <div class="dac-search-results-metadata wrap">
+      <div class="dac-search-results-for">
+        <h2>Results for <span id="search-results-for"></span></h2>
+      </div>
+
+      <div id="dac-search-results-hero"></div>
+
+      <div class="dac-search-results-hero cols">
+        <div id="dac-search-results-reference" class="col-6of6 col-tablet-2of2 col-mobile-1of1">
+          <div class="suggest-card reference no-display">
+            <ul class="dac-search-results-reference">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols dac-search-results-cse">
+        <script src="../../../../cse.google.com/f4116.txt?cx=000521750095050289010:zpcpi1ea4s8" async></script>
+        <gcse:searchresults-only></gcse:searchresults-only>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+
+  <a name="navigation" tabindex=0 class="nav-start-marker">navigation</a>
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+        <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" tabindex=0 data-swap-button>
+          
+          <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+        </a>
+
+        <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope
+            itemtype="http://schema.org/SiteNavigationElement">
+          
+          
+            
+            <ul id="nav">
+              <li class="nav-section"><div class="nav-section-header empty"><a href="../index.html" >Overview</a></div></li><li class="nav-section"><div class="nav-section-header"><a href="../../preview/index.html" >SDK Preview</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../preview/releases.html" >Release Notes</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="index.html" >Peripheral I/O</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="gpio.html" >GPIO</a></li><li><a href="pwm.html" >PWM</a></li><li><a href="i2c.html" >I2C</a></li><li><a href="spi.html" >SPI</a></li><li><a href="uart.html" >UART</a></li><li><a href="native.html" >Native PIO</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../drivers/index.html" >User-space Drivers</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../drivers/gps.html" >GPS</a></li><li><a href="../drivers/input.html" >Input</a></li><li><a href="../drivers/sensors.html" >Sensors</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../samples.html" >Samples</a><span class="toggle-icon" tabindex="0"></span></div><ul><li class="nav-section"><div class="nav-section-header"><a href="../../training/first-device/index.html"  description="Start with this class to learn the basics of Android Things development.">Building Your First Device</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../training/first-device/create-studio-project.html" >Create an Android Things Project</a></li><li><a href="../../training/first-device/connect-hardware.html" >Connect the Hardware</a></li><li><a href="../../training/first-device/peripherals.html" >Interact with Peripherals</a></li><li><a href="../../training/first-device/drivers.html" >Integrate Peripheral Drivers</a></li></ul></li><li class="nav-section"><div class="nav-section-header"><a href="../../training/doorbell/index.html"  description="Build a device that captures and shares image data with a companion app using Cloud Vision and Firebase.">Building a Cloud Doorbell</a><span class="toggle-icon" tabindex="0"></span></div><ul><li><a href="../../training/doorbell/button-input.html" >Implement a Doorbell Button</a></li><li><a href="../../training/doorbell/camera-input.html" >Add Camera Support</a></li><li><a href="../../training/doorbell/cloud-vision.html" >Analyze the Image Data</a></li><li><a href="../../training/doorbell/firebase-db.html" >Synchronize with Firebase</a></li><li><a href="../../training/doorbell/companion-app.html" >Implement a Companion App</a></li></ul></li><li><a href="../driver-library.html" >Driver Library</a></li></ul></li>
+            </ul>
+            
+          
+        </div>
+        
+        
+  
+<ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+  <li class="dac-nav-item">
+    <a class="dac-nav-back-button back-to-dev" tabindex="0"
+      href="https://developer.android.com/develop/index.html">
+      <i class="dac-sprite dac-nav-back"></i>Back to Developers
+    </a>
+  </li>
+  <li class="dac-nav-item hardware">
+    <a class="dac-nav-link" href="../../hardware/index.html"
+       >Hardware</a>
+  </li>
+  <li class="dac-nav-item sdk">
+    <a class="dac-nav-link" href="../index.html"
+       >SDK</a>
+  </li>
+</ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <a name="top" tabindex="0"></a>
+  
+  <div class="wrap clearfix" id="body-content">
+  
+    
+      
+      <div class="content-header">
+        <ul class="dac-header-crumbs"></ul>
+        <!-- Breadcrumb Setup -->
+        <script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script>
+        <h1 itemprop="name">UART</h1>
+        
+      </div>
+      
+    
+    <div class="jd-descr " itemprop="articleBody">
+      
+
+<p>Complex peripheral devices such as GPS modules, LCD displays, and XBee radios typically use
+<a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter">Universal Asynchronous Receiver Transmitter</a>
+(UART) ports (often simply called <strong><em>serial ports</em></strong>) to communicate.</p>
+<p>The UART is a generic interface for exchanging raw data with a peripheral device.
+It is <strong><em>universal</em></strong> because both the data transfer speed and data byte format
+are configurable. It is <strong><em>asynchronous</em></strong> in that there are no clock signals
+present to synchronize the data transfer between the two devices. The device
+hardware collects all incoming data in a first-in first-out (FIFO) buffer until
+read by your app.</p>
+<p>UART data transfer is <strong><em>full-duplex</em></strong>, meaning data can be sent and received at
+the same time. It is typically faster than I<sup>2</sup>C, but the lack of a shared
+clock means that both devices must agree on a common data transfer rate that each
+device can adhere to independently with minimal timing error.</p>
+<p><img alt="&quot;&quot;" src="../../images/uart-connections.png" /></p>
+<p>UART peripherals typically come in two flavors:</p>
+<ul>
+<li>3-Wire ports include data receive (RX), data transmit (TX), and ground
+    reference (GND) signals.</li>
+<li>5-Wire ports add request to send (RTS) and clear to send (CTS) signals used
+    for <strong><em>hardware flow control</em></strong>. Flow control allows the receiving device to
+    indicate that its FIFO buffer is temporarily full and the transmitting device
+    should wait before sending any more data.</li>
+</ul>
+<p>Unlike <a href="spi.html">SPI</a> and <a href="i2c.html">I2C</a>,
+UART only supports point-to-point communication between two devices.</p>
+<h2 id="managing_the_connection">Managing the connection</h2>
+<p>In order to open a connection to a particular UART, you need to know the unique
+port name. During the initial stages of development, or when porting an app to
+new hardware, it's helpful to discover all the available device names from
+<code>PeripheralManagerService</code> using <code>getUartDeviceList()</code>:</p>
+<pre class="prettyprint"><code>PeripheralManagerService manager = new PeripheralManagerService();
+List&lt;String&gt; deviceList = manager.getUartDeviceList();
+if (deviceList.isEmpty()) {
+    Log.i(TAG, &quot;No UART port available on this device.&quot;);
+} else {
+    Log.i(TAG, &quot;List of available devices: &quot; + deviceList);
+}
+</code></pre>
+
+<p>Once you know the target name, use <code>PeripheralManagerService</code> to connect to that
+device. When you are done communicating with the peripheral device, close the
+connection to free up resources. Additionally, you cannot open a new connection
+to the device until the existing connection is closed. To close the connection,
+use the device's <code>close()</code> method.</p>
+<pre class="prettyprint"><code>public class HomeActivity extends Activity {
+    // UART Device Name
+    private static final String UART_DEVICE_NAME = ...;
+
+    private UartDevice mDevice;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Attempt to access the UART device
+        try {
+            PeripheralManagerService manager = new PeripheralManagerService();
+            mDevice = manager.openUartDevice(UART_DEVICE_NAME);
+        } catch (IOException e) {
+            Log.w(TAG, &quot;Unable to access UART device&quot;, e);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (mDevice != null) {
+            try {
+                mDevice.close();
+                mDevice = null;
+            } catch (IOException e) {
+                Log.w(TAG, &quot;Unable to close UART device&quot;, e);
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="configuring_port_parameters">Configuring port parameters</h2>
+<p>After a connection is established, configure the data transfer rate and frame
+format to match the connected peripheral device.</p>
+<h3 id="the_data_frame">The Data Frame</h3>
+<p>Every character sent across the UART is wrapped in a <strong><em>data frame</em></strong>, which
+contains the following components:</p>
+<p><img alt="&quot;&quot;" src="../../images/uart-frame.png" /></p>
+<ul>
+<li><strong>Start Bit</strong> - Before sending data, the line is held active for a fixed time
+    interval of 1 bit duration to indicate the start of a new character.</li>
+<li><strong>Data Bits</strong> - Individual bits representing the data character. The UART may
+    be configured to send between 5-9 data bits to represent the character.
+    Fewer bits reduces the range of data, but can increase the effective data
+    transfer rate.</li>
+<li><strong>Parity Bit</strong> - Optional error checking value. If the UART is configured for
+    <strong><em>even</em></strong> or <strong><em>odd</em></strong> parity, an extra bit will be added to the frame to
+    indicate if the contents of the data bits sum to an even or odd value.
+    Setting this to <strong><em>none</em></strong> removes the bit from the frame.</li>
+<li><strong>Stop Bits</strong> - After all data is transmitted, the line is reset for a
+    configurable time interval to indicate the end of that character. This can
+    be configured to remain idle for 1- or 2-bit durations.</li>
+</ul>
+<aside class="note"><strong>Note:</strong><span> The default configuration for most UART devices is 8 data bits, no parity,
+and 1 stop bit (8N1).</span></aside>
+<p>The data transfer rate across the UART is called the <strong><em>baud rate</em></strong>. It represents
+the speed, in bits per second, for both receive and transmit. Since there is no
+shared clock between two devices connected over UART, both must be configured
+ahead of time to use the same baud rate for the data to be decoded correctly.</p>
+<p>Common baud rates include 9600, 19200, 38400, 57600, 115200, and 921600.
+This rate includes the overhead of the data frame (start, stop, and parity bits),
+so the effective data transfer rate will be slightly lower and vary based on the
+number of frame bits you have configured.</p>
+<p>The following code configures the UART connection to operate at 115200 baud,
+8 data bits, no parity, and 1 stop bit (8N1):</p>
+<pre class="prettyprint"><code>public void configureUartFrame(UartDevice uart) throws IOException {
+    // Configure the UART port
+    uart.setBaudrate(115200);
+    uart.setDataSize(8);
+    uart.setParity(UartDevice.PARITY_NONE);
+    uart.setStopBits(1);
+}
+</code></pre>
+
+<aside class="note"><strong>Note:</strong><span> Choosing uncommon baud rates can lead to high error rates in data transmission.
+You should always verify whether your chosen baud rate is well supported by your
+device hardware.</span></aside>
+<h3 id="hardware_flow_control">Hardware Flow Control</h3>
+<p>If your device supports 5-wire UART ports, enabling hardware flow control can
+increase the reliability of the data transfer. Often this also means you can safely
+use faster baud rates with a much lower chance of missing incoming data.</p>
+<p><img alt="&quot;&quot;" src="../../images/uart-flow-control.png" /></p>
+<p>With hardware flow control enabled, the UART asserts the Request to Send (RTS)
+signal when the receive buffer on the device is full and cannot accept any more
+data. The signal will be cleared once the buffer has been drained. Similarly, the
+UART monitors the Clear to Send (CTS) signal, and will pause transmitting data
+if it sees that line asserted by the peripheral device.</p>
+<p>To enable hardware flow control, use the <code>setHardwareFlowControl()</code> method with
+<code>HW_FLOW_CONTROL_AUTO_RTSCTS</code>. The default value is <code>HW_FLOW_CONTROL_NONE</code>, which
+indicates that flow control is disabled.</p>
+<pre class="prettyprint"><code>public void setFlowControlEnabled(UartDevice uart, boolean enable) throws IOException {
+    if (enable) {
+        // Enable hardware flow control
+        uart.setHardwareFlowControl(UartDevice.HW_FLOW_CONTROL_AUTO_RTSCTS);
+    } else {
+        // Disable flow control
+        uart.setHardwareFlowControl(UartDevice.HW_FLOW_CONTROL_NONE);
+    }
+}
+</code></pre>
+
+<h2 id="transmitting_outgoing_data">Transmitting outgoing data</h2>
+<p>To transmit a buffer of data over the UART to a peripheral, use the <code>write()</code> method:</p>
+<pre class="prettyprint"><code>public void writeUartData(UartDevice uart) throws IOException {
+    byte[] buffer = {...};
+    int count = uart.write(buffer, buffer.length);
+    Log.d(TAG, &quot;Wrote &quot; + count + &quot; bytes to peripheral&quot;);
+}
+</code></pre>
+
+<aside class="note"><strong>Note:</strong><span> A Java <code>byte</code> is an 8-bit value. If you configure a smaller data width using
+<code>setDataSize()</code>, the upper bits of each byte will be truncated.</span></aside>
+<h2 id="listening_for_incoming_data">Listening for incoming data</h2>
+<p>Use the <code>read()</code> method to pull incoming data from the UART FIFO buffer into your
+application. This method accepts an empty buffer to fill with the incoming data
+and a maximum number of bytes to read. UART reads are non-blocking, and will return
+immediately if there is no data available in the FIFO.</p>
+<p><code>UartDevice</code> will return the number of available bytes in the FIFO at the time of
+the read, up to the requested count. To ensure that all data was recovered,
+loop over the UART until it reports that no more data is present:</p>
+<pre class="prettyprint"><code>public void readUartBuffer(UartDevice uart) throws IOException {
+    // Maximum amount of data to read at one time
+    final int maxCount = ...;
+    byte[] buffer = new byte[maxCount];
+
+    int count;
+    while ((count = uart.read(buffer, buffer.length)) &gt; 0) {
+        Log.d(TAG, &quot;Read &quot; + count + &quot; bytes from peripheral&quot;);
+    }
+}
+</code></pre>
+
+<p>To avoid polling the UART unnecessarily when the buffer is empty, register a
+<code>UartDeviceCallback</code> with the <code>UartDevice</code>. This callback invokes the
+<code>onUartDeviceDataAvailable()</code> method when there is data available to read.
+You should unregister the callback when your application is no longer listening
+for incoming data.</p>
+<pre class="prettyprint"><code>public class HomeActivity extends Activity {
+    private UartDevice mDevice;
+    ...
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Begin listening for interrupt events
+        mDevice.registerUartDeviceCallback(mUartCallback);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Interrupt events no longer necessary
+        mDevice.unregisterUartDeviceCallback(mUartCallback);
+    }
+
+    private UartDeviceCallback mUartCallback = new UartDeviceCallback() {
+        @Override
+        public boolean onUartDeviceDataAvailable(UartDevice uart) {
+            // Read available data from the UART device
+            try {
+                readUartBuffer(uart);
+            } catch (IOException e) {
+                Log.w(TAG, &quot;Unable to access UART device&quot;, e);
+            }
+
+            // Continue listening for more interrupts
+            return true;
+        }
+
+        @Override
+        public void onUartDeviceError(UartDevice uart, int error) {
+            Log.w(TAG, uart + &quot;: Error event &quot; + error);
+        }
+    };
+}
+</code></pre>
+
+<p>The <code>onUartDeviceDataAvailable()</code> callback returns a boolean value, indicating
+whether the callback should be automatically unregistered from receiving future
+interrupt events. Return <code>true</code> here to continue receiving events each time data
+appears in the UART FIFO.</p>
+
+    </div>
+
+    
+
+    
+    
+
+
+
+
+<div class="wrap">
+  <footer class="dac-footer ">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" id="newsletter" data-modal-toggle="newsletter" title="Newsletter">Newsletter</a>
+          <a class="dac-footer-contact-link" href="https://android-developers.blogspot.com/" title="Blog">Blog</a>
+          <a class="dac-footer-contact-link" href="https://developer.android.com/support.html" title="Support">Support</a>
+        </div>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers" title="Android Developers on YouTube"><i class="dac-sprite dac-youtube"></i><span class="hide-text">Android Developers on YouTube</span></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers" title="Android Developers on Google+"><i class="dac-sprite dac-gplus"></i><span class="hide-text">Android Developers on Google+</span></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev" title="Android Developers on Twitter"><i class="dac-sprite dac-twitter"></i><span class="hide-text">Android Developers on Twitter</span></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+      
+      <p class="dac-footer-copyright">
+        Except as noted, this content is
+        licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+        Creative Commons Attribution 2.5</a>. For details and
+        restrictions, see the <a href="https://developer.android.com/license.html">Content
+        License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="https://www.android.com/" title="Android.com">Android.com</a>
+      <a href="https://developer.android.com/" title="Android Developers">Android Developers</a>
+      <a href="https://developer.android.com/studio/index.html" title="Android Studio">Android Studio</a>
+      
+        <a href="https://developer.android.com/console/index.html" title="Google Play Developer Console">Google Play Developer Console</a>
+      
+      <a href="https://developer.android.com/legal.html" title="Legal Notice">Legal Notice</a>
+    </p>
+
+    <!-- TODO(akassay) Update all DAC js to use the class instead of the id b/30368561 -->
+    <form class="devsite-utility-footer-language" id="setlang" action="https://developer.android.com/i18n/setlang/" method="post">
+      <input type="hidden" name="xsrf_token" value="ZCWd9tYssDPs-uTVbTwUhifVPyB4jdWMmA8rFfkL5IA6MTQ4OTk4NDAxNDA2OTU2MA" />
+      <input type="hidden" name="next" value="/things/sdk/pio/uart.html">
+      <span id="language" class="locales">
+        <select class="devsite-utility-footer-language-select" name="language">
+          
+          <option value="id"
+            >
+            Bahasa Indonesia
+          </option>
+          
+          <option value="en"
+             selected="selected" >
+            English
+          </option>
+          
+          <option value="es"
+            >
+            español
+          </option>
+          
+          <option value="pt-br"
+            >
+            Português Brasileiro
+          </option>
+          
+          <option value="vi"
+            >
+            Tiếng Việt
+          </option>
+          
+          <option value="ru"
+            >
+            Русский
+          </option>
+          
+          <option value="ja"
+            >
+            日本語
+          </option>
+          
+          <option value="zh-cn"
+            >
+            简体中文
+          </option>
+          
+          <option value="zh-tw"
+            >
+            繁體中文
+          </option>
+          
+          <option value="ko"
+            >
+            한국어
+          </option>
+          
+        </select>
+      </span>
+    </form>
+  </footer>
+</div><!--/.wrap -->
+
+
+<div class="dac-toast-group">
+  <div class="dac-toast" data-toast>
+    <div class="dac-toast-wrap">
+      This site uses cookies to store your preferences for site-specific language and display options.
+    </div>
+  </div>
+</div>
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div><!--/.dac-modal.newsletter-->
+
+
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="yes" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+            </a>
+            <a href="#" class="" onclick="return false;">
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal-->
+
+
+<div data-modal="api-unavailable" class="dac-modal" id="api-unavailable">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title">
+            This class requires API level <span class="api-level"></span>
+            or higher
+          </h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+
+      <p>This doc is hidden because your selected API level for the
+      documentation is <span class="selected-level"></span>. You can change the
+      documentation API level with the selector above the left navigation.</p>
+
+      <p>For more information about specifying the API level your app requires,
+      read <a
+      href="https://developer.android.com/training/basics/supporting-devices/platforms.html">Supporting
+      Different Platform Versions</a>.</p>
+
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+            <a href="#" class="ok" onclick="return false;">
+              <button class="button dac-primary dac-modal-action ok"
+              data-modal-toggle>
+                OK, make this page visible
+              </button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div><!--/.dac-modal#api-unavailable-->
+
+    
+  </div><!--/#body-content-->
+
+  <!-- Nav Setup -->
+  <script>$('[data-dac-nav]').dacNav();</script>
+  <script type="text/javascript">
+    $('.slideshow-container').dacSlideshow({
+        btnPrev: '.slideshow-prev',
+        btnNext: '.slideshow-next',
+        btnPause: '#pauseButton'
+    });
+
+    $(".feed").dacTabbedList({
+      nav_id: '.feed-nav',
+      frame_id: '.feed-frame'
+    });
+  </script>
+  
+  <script src="../../../ytblogger_lists_unified16d8.js?v=2017032004" defer></script>
+  <script src="../../../android_metadata_en16d8.js?v=2017032004" defer></script>
+  
+  <script src="../../../reference/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/gcm_lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/gms_lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/wearable/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/test/lists16d8.js?v=2017032004" defer></script>
+  <script src="../../../reference/android/support/constraint/lists16d8.js?v=2017032004" defer></script>
+  <script src="https://developer.android.com/_static2/64fbe09b00/jsi18n/"></script>
+  <script>
+    // Load localized metadata.
+    (function(lang) {
+      if (lang === 'en') { return; }
+      document.write('<script src="https://developer.android.com/android_metadata_en.js?v=2017032004" defer></' + 'script>');
+    })(getLangPref())
+
+    // Add skip to content for accessibility.
+    $('#skip-to-main').click(function() {
+      $('a[name=top]').focus();
+    });
+
+    $('.devsite-utility-footer-language-select').each(function() {
+      $(this).change(function() {
+        changeLangPref(this.value, true)
+        $('.devsite-utility-footer-language').submit();
+      });
+    });
+  </script>
+
+  <script>
+    (function($) {
+      devsite.analytics.InitAnalytics();
+    })(jQuery);
+  </script>
+
+  
+
+<div id="survey-box-wrapper">
+  <div class="material-dialog" style="width:270px">
+    <div class="material-dialog-title">
+      Take a one-minute survey?
+    </div>
+    <div class="material-dialog-description">
+      Help us improve Android tools and documentation.
+    </div>
+    <div class="material-button-bar">
+      <a class="dac-button dac-primary dac-raised" target="_blank"
+          href="https://goo.gl/forms/kV7MoyD2dvcWkd5N2">Sure</a>
+      <a class="dac-button" href="#">No thanks</a>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<!-- Mirrored from developer.android.com/things/sdk/pio/uart.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 04:27:15 GMT -->
+</html>
