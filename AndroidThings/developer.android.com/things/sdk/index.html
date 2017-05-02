@@ -52,7 +52,7 @@
 
 <title>
 
-  Overview | Android Things
+  概览 | Android Things
 
 </title>
 
@@ -274,70 +274,45 @@
     <div class="jd-descr " itemprop="articleBody">
       
 
-<p>Android Things makes developing connected embedded devices easy by providing
-the same Android development tools, best-in-class Android framework, and
-Google APIs that make developers successful on mobile.</p>
+<p>Android Things，通过提供相同的Android开发工具, 一流的Android框架和Google API，使开发人员在移动设备上取得成功，使开发连接嵌入式设备变得容易.
+</p>
 <p><img alt="&quot;&quot;" src="../images/platform-architecture.png" /></p>
-<p>Apps for embedded devices bring developers closer to hardware peripherals and
-drivers than phones and tablets. In addition, embedded devices typically present
-a single app experience to users. This document goes over the major additions,
-omissions, and differences between core Android development and Android Things.</p>
-<p>Android Things extends the core Android framework with additional APIs provided
-by the Things Support Library. These APIs allow apps to integrate with new types
-of hardware not found on mobile devices.</p>
-<p>The Android Things platform is also streamlined for single application use.
-System apps are not present, and your app is launched automatically on startup
-to immerse your users in the app experience.</p>
-<h2 id="things_support_library">Things Support Library</h2>
-<h3 id="peripheral_io_api">Peripheral I/O API</h3>
-<p>The Peripheral I/O APIs let your apps communicate with sensors and actuators using
-industry standard protocols and interfaces. The following interfaces are supported:
-GPIO, PWM, I2C, SPI, UART.</p>
-<p>See the <a href="pio/index.html">Peripheral I/O API Guides</a>
-for more information on how to use the APIs.</p>
-<h3 id="user_driver_api">User Driver API</h3>
-<p>User drivers extend existing Android framework services and allow apps to inject
-hardware events into the framework that other apps can access using the standard
-Android APIs.</p>
-<p>See the <a href="drivers/index.html">User Driver API Guides</a>
-for more information on how to use the APIs.</p>
-<h2 id="behavior_changes">Behavior Changes</h2>
-<h3 id="core_application_packages">Core application packages</h3>
-<p>Android Things doesn't include the standard suite of system apps and content
-providers. Avoid using <a href="https://developer.android.com/guide/components/intents-common.html">common intents</a>
-as well as the following content provider APIs in your apps:</p>
-<p><a href="https://developer.android.com/reference/android/provider/CalendarContract.html">CalendarContract</a><br/>
-<a href="https://developer.android.com/reference/android/provider/ContactsContract.html">ContactsContract</a><br/>
-<a href="https://developer.android.com/reference/android/provider/DocumentsContract.html">DocumentsContract</a><br/>
-<a href="https://developer.android.com/reference/android/app/DownloadManager.html">DownloadManager</a><br/>
-<a href="https://developer.android.com/reference/android/provider/MediaStore.html">MediaStore</a><br/>
-<a href="https://developer.android.com/reference/android/provider/Settings.html">Settings</a><br/>
-<a href="https://developer.android.com/reference/android/provider/Telephony.html">Telephony</a><br/>
-<a href="https://developer.android.com/reference/android/provider/UserDictionary.html">UserDictionary</a><br/>
-<a href="https://developer.android.com/reference/android/provider/VoicemailContract.html">VoicemailContract</a><br/></p>
-<h3 id="displays_are_optional">Displays are optional</h3>
-<p>Android Things supports graphical user interfaces using the same
-<a href="https://developer.android.com/guide/topics/ui/index.html">UI toolkit</a> available
-to traditional Android applications. In graphical mode, the application window
-occupies the full real estate of the display. Android Things does not include the
-system status bar or navigation buttons, giving applications full control over
-the visual user experience.</p>
-<p>However, Android Things does not <em>require</em> a display. On devices where a
-graphical display is not present, activities are still a primary component of
-your Android Things app. This is because the framework delivers all
-<a href="https://developer.android.com/guide/topics/ui/ui-events.html">input events</a> to the foreground activity,
-which has focus. Your app cannot receive key events or motion events through any
-other application component, such as a <a href="https://developer.android.com/guide/components/services.html">service</a>.</p>
-<h3 id="home_activity_support">Home activity support</h3>
-<p>Android Things expects one application to expose a "home activity" in its manifest
-as the main entry point for the system to automatically launch on boot. This
-activity must contain an intent filter that includes both
+<p>嵌入式设备的应用程序使开发人员更接近硬件外设和驱动程序，而不是手机和平板. 此外, 嵌入式设备通常向用户呈现单一的用户体验. 本文档介绍了Android开发和Android Things之间的主要补充，遗漏和差异.</p>
+<p>Android Things 通过物件支持库提供的附加API来扩展核心的Android框架.这些APIs允许应用程序与在移动设备上找不到的新类型的硬件集成.</p>
+<p>Android Things平台也简化了单一应用程序使用.
+系统应用程序不存在，您的应用程序会在启动时会自动启动，让您的用户沉浸在程序体验当中.</p>
+<h2 id="things_support_library">Things 支持库</h2>
+<h3 id="peripheral_io_api">外部设备 I/O API</h3>
+<p>外部设备 I/O APIs 让您的应用程序使用行业标准协议和接口，传感器，执行器通信. 支持以下接口:GPIO, PWM, I2C, SPI, UART.</p>
+<p>有关如何使用APIs的更多信息，请参考 <a href="pio/index.html">Peripheral I/O API Guides</a>.</p>
+<h3 id="user_driver_api">用户驱动 API</h3>
+<p>用户驱动程序扩展现有的Android框架服务，并允许应用程序将硬件事件注入其他应用程序，可以使用标准Android APIs访问的框架.</p>
+<p>有关如何使用APIs的更多信息，请参考 <a href="drivers/index.html">User Driver API Guides</a>.</p>
+<h2 id="behavior_changes">行为变化</h2>
+<h3 id="core_application_packages">核心应用程序包</h3>
+<p>Android Things 不包括系统应用程序和内容提供商的标准套件.避免在应用程序中使用 <a href="https://developer.android.com/guide/components/intents-common.html">common intents</a>
+以及以下内容，提供者APIs:</p>
+<p><a href="https://developer.android.com/reference/android/provider/CalendarContract.html">日历合同</a><br/>
+<a href="https://developer.android.com/reference/android/provider/ContactsContract.html">联系人合同</a><br/>
+<a href="https://developer.android.com/reference/android/provider/DocumentsContract.html">文件合同</a><br/>
+<a href="https://developer.android.com/reference/android/app/DownloadManager.html">下载管理器</a><br/>
+<a href="https://developer.android.com/reference/android/provider/MediaStore.html">媒体商店</a><br/>
+<a href="https://developer.android.com/reference/android/provider/Settings.html">设置</a><br/>
+<a href="https://developer.android.com/reference/android/provider/Telephony.html">电话</a><br/>
+<a href="https://developer.android.com/reference/android/provider/UserDictionary.html">用户词典</a><br/>
+<a href="https://developer.android.com/reference/android/provider/VoicemailContract.html">语音信箱</a><br/></p>
+<h3 id="displays_are_optional">显示是可选的</h3>
+<p>Android Things 支持使用与传统Android应用程序相同的
+<a href="https://developer.android.com/guide/topics/ui/index.html">UI 工具包</a> 的图形用户界面. 在图形模式下，应用程序窗口占据显示器的完整空间.Android Things 不包括系统状态栏或导航按钮，使应用程序可以完全控制视觉的用户体验.</p>
+<p>但是, Android Things 不需要 显示. 在不存在图形显示的设备上, 动态仍然是您的Android Things应用程序的主要组成部分. 这是因为框架将所有
+<a href="https://developer.android.com/guide/topics/ui/ui-events.html">输入事件</a> 提供给具有焦点的前台活动. 您的应用程序无法通过任何其他应用组件（ <a href="https://developer.android.com/guide/components/services.html">服务</a>接收关键事件或运动事件.</p>
+<h3 id="home_activity_support">家庭活动支持</h3>
+<p>Android Things 预期一个应用程序将其清单中的“家庭活动”公开为系统在启动时自动启动的主要入口点. 此活动必须包含一个
 <a href="https://developer.android.com/reference/android/content/Intent.html#CATEGORY_DEFAULT">CATEGORY_DEFAULT</a>
-and <code>IOT_LAUNCHER</code>.</p>
-<p>For ease of development, this same activity should include a
+和 <code>IOT_LAUNCHER</code>.</p>
+<p>为了方便开发, 同样的活动应包含一个
 <a href="https://developer.android.com/reference/android/content/Intent.html#CATEGORY_LAUNCHER">CATEGORY_LAUNCHER</a>
-intent filter so Android Studio can launch it as the default activity when
-deploying or debugging.</p>
+意图过滤器，因为 Android Studio 可以部署或调试时将其作为默认活动启动.</p>
 <pre class="prettyprint"><code>&lt;application
     android:label=&quot;@string/app_name&quot;&gt;
     &lt;activity android:name=&quot;.HomeActivity&quot;&gt;
@@ -357,73 +332,65 @@ deploying or debugging.</p>
 &lt;/application&gt;
 </code></pre>
 
-<h3 id="support_for_google_services">Support for Google services</h3>
-<p>Android Things supports a subset of the
-<a href="https://developers.google.com/android/">Google APIs for Android</a>. The following
-table breaks down API support in Android Things:</p>
+<h3 id="support_for_google_services">支持Google服务</h3>
+<p>Android Things 支持Android的一部分
+<a href="https://developers.google.com/android/">Google APIs for Android</a>. 下表分解了Android中的API支持:</p>
 <table>
   <tr>
-    <th>Supported APIs
+    <th>支持 APIs
     </th>
-    <th>Unavailable APIs
+    <th>不可用的 APIs
     </th>
   </tr>
   <tr>
     <td style="width: 50%;">
-      <a href="https://developers.google.com/cast/">Cast</a><br />
-      <a href="https://developers.google.com/drive/">Drive</a><br />
-      <a href="https://firebase.google.com/docs/analytics/">Firebase Analytics</a><br />
-      <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging (FCM)</a><br />
-      <a href="https://firebase.google.com/docs/crash/">Firebase Crash Reporting</a><br />
-      <a href="https://firebase.google.com/docs/database/">Firebase Realtime Database</a><br />
-      <a href="https://firebase.google.com/docs/remote-config/">Firebase Remote Config</a><br />
-      <a href="https://firebase.google.com/docs/storage/">Firebase Storage</a><br />
-      <a href="https://developers.google.com/fit/">Fit</a><br />
-      <a href="https://developers.google.com/instance-id/">Instance ID</a><br />
-      <a href="https://developers.google.com/awareness-location/">Location</a><br />
-      <a href="https://developers.google.com/nearby/">Nearby</a><br />
-      <a href="https://developers.google.com/places/">Places</a><br />
-      <a href="https://developers.google.com/vision/">Mobile Vision</a>
+      <a href="https://developers.google.com/cast/">计算</a><br />
+      <a href="https://developers.google.com/drive/">驱动</a><br />
+      <a href="https://firebase.google.com/docs/analytics/">Firebase 分析</a><br />
+      <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase 云消息传递 (FCM)</a><br />
+      <a href="https://firebase.google.com/docs/crash/">Firebase 崩溃报告</a><br />
+      <a href="https://firebase.google.com/docs/database/">Firebase 实时数据库</a><br />
+      <a href="https://firebase.google.com/docs/remote-config/">Firebase 远程配置</a><br />
+      <a href="https://firebase.google.com/docs/storage/">Firebase 存储</a><br />
+      <a href="https://developers.google.com/fit/">安装</a><br />
+      <a href="https://developers.google.com/instance-id/">实例 ID</a><br />
+      <a href="https://developers.google.com/awareness-location/">位置</a><br />
+      <a href="https://developers.google.com/nearby/">附近</a><br />
+      <a href="https://developers.google.com/places/">地方</a><br />
+      <a href="https://developers.google.com/vision/">移动视觉</a>
     </td>
     <td style="width: 50%;">
       <a href="https://firebase.google.com/docs/admob/">AdMob</a><br />
       <a href="https://developers.google.com/android-pay/">Android Pay</a><br />
       <a href="https://firebase.google.com/docs/app-indexing/">Firebase App Indexing</a><br />
-      <a href="https://firebase.google.com/docs/auth/">Firebase Authentication</a><br />
-      <a href="https://firebase.google.com/docs/dynamic-links/">Firebase Dynamic Links</a><br />
-      <a href="https://firebase.google.com/docs/invites/">Firebase Invites</a><br />
-      <a href="https://firebase.google.com/docs/notifications/">Firebase Notifications</a><br />
-      <a href="https://developers.google.com/maps/">Maps</a><br />
-      <a href="https://developers.google.com/games/services/">Play Games</a><br />
-      <a href="https://developers.google.com/search/">Search</a><br />
-      <a href="https://developers.google.com/identity/">Sign-In</a>
+      <a href="https://firebase.google.com/docs/auth/">Firebase 认证</a><br />
+      <a href="https://firebase.google.com/docs/dynamic-links/">Firebase 动态链接</a><br />
+      <a href="https://firebase.google.com/docs/invites/">Firebase 邀请</a><br />
+      <a href="https://firebase.google.com/docs/notifications/">Firebase 通知</a><br />
+      <a href="https://developers.google.com/maps/">地图</a><br />
+      <a href="https://developers.google.com/games/services/">玩游戏</a><br />
+      <a href="https://developers.google.com/search/">搜索</a><br />
+      <a href="https://developers.google.com/identity/">签到</a>
     </td>
   </tr>
 </table>
 
-<aside class="note"><strong>Note:</strong><span> As a general rule, APIs that require user input or authentication
-credentials aren't available to apps.</span></aside>
-<p>Each release of Android Things bundles the latest stable version of
-<a href="https://developer.android.com/google/play-services/index.html">Google Play Services</a>, and requires at least
-version <strong>10.0.0</strong> of the client SDK. Android Things does not include the
-<a href="https://developer.android.com/distribute/googleplay/index.html">Google Play Store</a>, which is responsible for
-automatically updating Play Services on the device. Because the Play Services
-version on the device is static, apps cannot target a client SDK greater than
-the version bundled with the target release.</p>
-<aside class="note"><strong>Note:</strong><span> During developer preview, the bundled version for each release is listed
-in the <a href="../preview/releases.html">release notes</a>.</span></aside>
-<h3 id="permissions">Permissions</h3>
-<p><a href="https://developer.android.com/training/permissions/requesting.html">Requesting Permissions at Runtime</a>
-is not supported because embedded devices aren't guaranteed to have a UI to accept the runtime dialog.
-<a href="https://developer.android.com/training/permissions/declaring.html">Declare permissions</a>
-that you need in your app's manifest file. All normal and dangerous permissions
-declared in your app's manifest are granted at install time.</p>
-<h3 id="notifications">Notifications</h3>
-<p>Since there is no system-wide status bar and window shade in Android Things,
-<a href="https://developer.android.com/guide/topics/ui/notifiers/notifications.html">notifications</a>
-are not supported. Avoid calling the
+<aside class="note"><strong>注意:</strong><span> 作为一般规则, 需要用户输入或身份验证凭据的 APIs 不适用与应用程序.</span></aside>
+<p>Android Things 每个版本 都会捆绑最新版本的
+<a href="https://developer.android.com/google/play-services/index.html">Google Play 服务</a>, 并且至少需要 <strong>10.0.0</strong> 版的客户端 SDK. Android Things 不包括
+<a href="https://developer.android.com/distribute/googleplay/index.html">Google Play 商店</a>, 该商店负责在设备上自动更新Play服务. 由于设备上的Play服务版本是静态的, 因此应用程序无法将客户端SDK定位到大于目标版本的版本并捆绑在一起..</p>
+<aside class="note"><strong>注意:</strong><span> 在开发人员预览期间，每个版本的捆绑版本在 <a href="../preview/releases.html">发行说明</a>.</span></aside>中列出.
+<h3 id="permissions">权限</h3>
+<p><a href="https://developer.android.com/training/permissions/requesting.html">不支持在运行时请求的权限</a>
+因为嵌入式设备不能保证有UI来接受运行时对话框.在应用程序的清单文件中
+<a href="https://developer.android.com/training/permissions/declaring.html">声明所需的权限</a>.
+ 在应用程序的清单中声明的所有正常和危险的权限都将在安装时被授予.</p>
+<h3 id="notifications">通知</h3>
+<p>由于Android Thing中没有全系统状态栏和windows shade,因此不支持
+<a href="https://developer.android.com/guide/topics/ui/notifiers/notifications.html">通知</a>
+. 避免在您的应用程序中调用
 <a href="https://developer.android.com/reference/android/app/NotificationManager.html">NotificationManager</a>
-APIs in your apps.</p>
+APIs.</p>
 
     </div>
 
